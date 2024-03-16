@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for vd in vds %}
+<div class="{% cycle 'alert alert-secondary' 'alert alert-success' %}">
+    <h6>{{vd.name}}</h6>
+    <h6>{{vd.manufacturer}}</h6>
+    <p>Дата выхода: {{vd.release_date}}</p>
+    <p>Память: {{vd.memory}}</p>
+    <p>Цена: {{vd.price}} $</p>
+</div>
+{% endfor %}
+
+<div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">&lt;&lt;</a>
+    {% endif %}
+    {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">&gt;&gt;</a>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block header %}<h5>Create video card</h5>{% endblock %}
+
+{% block content %}
+<div class='alert alert-success'>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Submit">
+</form>
+</div>
+{% endblock %}
+
+{% block footer %} <h6>End create video card</h6> {% endblock %}
